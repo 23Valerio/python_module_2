@@ -1,0 +1,5 @@
+Valerio | HARD | 6
+Vali | HARD | 0
+Petro | HARD | 0
+Vadim | HARD | 0
+Valera | NORMAL | 10

@@ -1,6 +1,7 @@
 from game.models import Player
 from game.game import Game
-from game.settings import MODES, CROSSED_SWORDS, ANGRY_FACE
+from game.score import ScoreHandler
+from game.settings import MODES, CROSSED_SWORDS, ANGRY_FACE, SCORE_FILE
 from game.exceptions import ExitGame
 
 
@@ -31,7 +32,9 @@ def play_game():
     game.play()
 
 def show_scores():
-    print("SCORES")
+    print(f"{CROSSED_SWORDS} BEST RESULTS: {CROSSED_SWORDS}")
+    score_handler = ScoreHandler(SCORE_FILE)
+    score_handler.display()
 
 def exit():
     print("Quit Game")
@@ -58,6 +61,8 @@ def main() -> None:
             return menu_options[option]()
         print("Wrong option. Please, enter 1, 2 or 3.")
     
+
+
 
 if __name__ == "__main__":
     main()

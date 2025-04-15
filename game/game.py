@@ -1,6 +1,7 @@
 from game.models import Player, Enemy
-from game.settings import ATTACK_PAIRS_OUTCOME, POINTS_FOR_KILLING, WIN, LOSE, WEARY_FACE, GRINNING_FACE, SKULL, SHIELD
+from game.settings import ATTACK_PAIRS_OUTCOME, POINTS_FOR_KILLING, WIN, LOSE, WEARY_FACE, GRINNING_FACE, SKULL, SHIELD, SCORE_FILE, STR_MODES
 from game.exceptions import GameOver, EnemyDown
+from game.score import ScoreHandler, PlayerRecord
 import sys
 
 
@@ -35,13 +36,17 @@ class Game():
         except GameOver:
             print(f"You Lose! {WEARY_FACE} Game Over!")
             print(f"Your score: {self.player.score}")
+            self.save_score()
             sys.exit() 
         except EnemyDown:
             self.create_enemy()
             print(f"Enemy Down - next level: {self.enemy.level}")
             pass
+
     def save_score(self):
-        pass
+        score_handler = ScoreHandler(SCORE_FILE)
+        new_player = PlayerRecord(self.player.name, STR_MODES[self.mode], self.player.score)
+        score_handler.save(new_player)
 
     def play(self):
         while True:

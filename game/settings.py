@@ -1,3 +1,5 @@
+STR_MODES = {1: "NORMAL", 
+             2: "HARD"}
 MODE_NORMAL = 1
 MODE_HARD = 2
 MODES = {'1': MODE_NORMAL,
@@ -47,8 +49,7 @@ MENU_OPTIONS = {
     '3': EXIT
 }
 
-
-# Emojis
+# Emoji
  
 ICONS = {
     'Paper': '\U0001F4C4',
