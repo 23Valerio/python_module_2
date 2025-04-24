@@ -12,7 +12,7 @@ class Player:
     """
     name: str
     lives: int
-    score = 0
+    score: int
 
     def __init__(self, name: str):
         """Initializes the Player instance.
@@ -48,7 +48,7 @@ class Player:
         """
         self.lives -= POINTS_FOR_FIGHT
         if self.lives <= 0:
-            raise GameOver()
+            raise GameOver
 
     def add_score(self, points: int):
         """Increases player's score.
